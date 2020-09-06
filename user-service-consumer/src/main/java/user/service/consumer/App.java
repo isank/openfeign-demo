@@ -6,22 +6,22 @@ import demo.openfeign.user.client.user.UserServiceFactory;
 
 public class App {
 
-    private static final String USER_SERVICE_HOST = "http://localhost:8080";
+  private static final String USER_SERVICE_HOST = "http://localhost:8080";
 
-    public static void main(String[] args) {
+  public static void main(String[] args) {
 
-        UserService userService = UserServiceFactory.create(USER_SERVICE_HOST);
+    UserService userService = UserServiceFactory.create(USER_SERVICE_HOST);
 
-        User newUser = new User();
-        newUser.setName("John");
-        newUser.setAddress("World");
+    User newUser = new User();
+    newUser.setName("John");
+    newUser.setAddress("World");
 
-        User addedUser = userService.addUser(newUser);
+    User addedUser = userService.addUser(newUser);
 
-        System.out.println("Created new user = " + addedUser);
+    System.out.println("Created new user = " + addedUser);
 
-        User user = userService.getUser(addedUser.getId().toString());
+    User user = userService.getUser(addedUser.getId().toString());
 
-        System.out.println("User = " + user);
-    }
+    System.out.println("User = " + user);
+  }
 }
