@@ -1,0 +1,25 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
+dependencies {
+    implementation 'demo.openfeign.user:client:0.0.1-SNAPSHOT'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.2'
+
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.6.2'
+}
+
+application {
+    mainClassName = 'user.service.consumer.App'
+}
+
+test {
+    useJUnitPlatform()
+}

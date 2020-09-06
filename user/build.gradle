@@ -1,0 +1,13 @@
+group = 'demo.openfeign.user'
+
+task publishToMavenLocal {
+    dependsOn gradle.includedBuilds*.task(':publishToMavenLocal')
+}
+
+task clean {
+    dependsOn gradle.includedBuilds*.task(':clean')
+}
+
+task bootRun {
+    dependsOn gradle.includedBuild('service').task(':bootRun')
+}
